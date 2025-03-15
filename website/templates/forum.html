@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Forum{% endblock %} {% block content
+%}
+<h2>Forum</h2>
+<a href="{{ url_for('forum.create_post') }}" class="btn btn-primary"
+  >Create Post</a
+>
+<ul>
+  {% for post in posts %}
+  <li>
+    <a href="{{ url_for('forum.post_detail', post_id=post.id) }}"
+      >{{ post.title }}</a
+    >
+    - by {{ post.author.first_name }}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
